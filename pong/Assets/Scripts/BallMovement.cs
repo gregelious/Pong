@@ -5,21 +5,36 @@ using UnityEngine;
 public class BallMovement : MonoBehaviour
 {
     public float xSpeed = 0;
+    public float ySpeed = 0;
     private float xBorder = 7.5f;
+    private float yBorder = 7.5f;
     // Start is called before the first frame update
     void Start()
     {
         xSpeed = 0.0125f;
+        ySpeed = 0.02f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector2(transform.position.x + xSpeed, transform.position.y);
+        transform.position = new Vector2(transform.position.x + xSpeed, transform.position.y + ySpeed);
 
         if (transform.position.x >= xBorder)
         {
-            xSpeed = 0f;
+            xSpeed = -xSpeed;
+        }
+        if (transform.position.x <= -xBorder)
+        {
+            xSpeed = -xSpeed;
+        }
+        if (transform.position.y >= yBorder)
+        {
+            ySpeed = -xSpeed;
+        }
+        if (transform.position.y <= -yBorder)
+        {
+            ySpeed = -ySpeed;
         }
     }
 }
