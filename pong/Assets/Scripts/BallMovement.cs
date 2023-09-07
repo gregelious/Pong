@@ -6,8 +6,8 @@ public class BallMovement : MonoBehaviour
 {
     public float xSpeed = 0;
     public float ySpeed = 0;
-    private float xBorder = 7.5f;
-    private float yBorder = 7.5f;
+    private float xBorder = 8.5f;
+    private float yBorder = 4.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +30,7 @@ public class BallMovement : MonoBehaviour
         }
         if (transform.position.y >= yBorder)
         {
-            ySpeed = -xSpeed;
+            ySpeed = -ySpeed;
         }
         if (transform.position.y <= -yBorder)
         {
