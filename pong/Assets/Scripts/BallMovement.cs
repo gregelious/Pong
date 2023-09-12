@@ -23,17 +23,17 @@ public class BallMovement : MonoBehaviour
     void Update()
     {
         if (transform.position.x >= xBorder) { xMove = false; }
-        if (transform.position.x <= xBorder) { xMove = true; }
+        if (transform.position.x <= -xBorder) { xMove = true; }
         if (transform.position.y >= yBorder) { yMove = false; }
-        if (transform.position.y <= yBorder) { yMove = true; }
+        if (transform.position.y <= -yBorder) { yMove = true; }
 
         if (xMove == true)
         {
             transform.position = new Vector2(transform.position.x + xSpeed, transform.position.y);
         }
-        else 
+        else
         {
-            transform.position = new Vector2(transform.position.x - xSpeed, transform.position.y + ySpeed);
+            transform.position = new Vector2(transform.position.x - xSpeed, transform.position.y);
         }
         if (yMove == true)
         {
@@ -47,6 +47,17 @@ public class BallMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
+        Debug.Log("hit");
+        if (collision.collider.CompareTag("Player"))
+        {
+            if (xMove == true)
+            {
+                xMove = false;
+            }
+            else
+            {
+                xMove = true;
+            }
+        }
     }
 }

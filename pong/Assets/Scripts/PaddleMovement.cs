@@ -5,7 +5,7 @@ using UnityEngine;
 public class PaddleMovement : MonoBehaviour
 {
 
-    public float speed = .00000000001f;
+    public float speed = 1f;
     public float yBorder = 4.5f;
     // Start is called before the first frame update
     void Start()
