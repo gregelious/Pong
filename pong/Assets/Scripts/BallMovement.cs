@@ -26,7 +26,7 @@ public class BallMovement : MonoBehaviour
         }
         if (transform.position.x <= -xBorder)
         {
-            xSpeed = -xSpeed + ;
+            xSpeed = -xSpeed;
         }
         if (transform.position.y >= yBorder)
         {
