@@ -8,6 +8,10 @@ public class BallMovement : MonoBehaviour
     public float ySpeed = 0;
     private float xBorder = 8.5f;
     private float yBorder = 4.5f;
+
+    public bool xMove = true;
+    public bool yMove = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,23 +22,31 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector2(transform.position.x + xSpeed, transform.position.y + ySpeed);
+        if (transform.position.x >= xBorder) { xMove = false; }
+        if (transform.position.x <= xBorder) { xMove = true; }
+        if (transform.position.y >= yBorder) { yMove = false; }
+        if (transform.position.y <= yBorder) { yMove = true; }
 
-        if (transform.position.x >= xBorder)
+        if (xMove == true)
         {
-            xSpeed = -xSpeed;
+            transform.position = new Vector2(transform.position.x + xSpeed, transform.position.y);
         }
-        if (transform.position.x <= -xBorder)
+        else 
         {
-            xSpeed = -xSpeed;
+            transform.position = new Vector2(transform.position.x - xSpeed, transform.position.y + ySpeed);
         }
-        if (transform.position.y >= yBorder)
+        if (yMove == true)
         {
-            ySpeed = -ySpeed;
+            transform.position = new Vector2(transform.position.x, transform.position.y + ySpeed);
         }
-        if (transform.position.y <= -yBorder)
+        else
         {
-            ySpeed = -ySpeed;
+            transform.position = new Vector2(transform.position.x, transform.position.y - ySpeed);
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+
     }
 }
