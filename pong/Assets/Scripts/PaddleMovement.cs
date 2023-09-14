@@ -20,5 +20,9 @@ public class PaddleMovement : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x, transform.position.y + speed);
         }
+        if (Input.GetKey(KeyCode.L))
+        {
+            transform.position = new Vector2(transform.position.x, transform.position.y - speed);
+        }
     }
 }
