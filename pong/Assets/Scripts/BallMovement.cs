@@ -12,6 +12,11 @@ public class BallMovement : MonoBehaviour
     public bool xMove = true;
     public bool yMove = true;
 
+    int playerOneScore;
+    public Text scoreTextP1;
+    int playerTwoScore;
+    public Text scoreTextP2;
+
     // Start is called before the first frame update
     void Start()
     {
