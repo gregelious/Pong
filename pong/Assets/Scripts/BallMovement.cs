@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BallMovement : MonoBehaviour
 {
@@ -48,7 +49,22 @@ public class BallMovement : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x, transform.position.y - ySpeed);
         }
+
+        if (transform.position.x >= xBorder)
+        {
+            xMove = false;
+            playerOneScore++;
+        }
+        if (transform.position.x <= -xBorder)
+        {
+            xMove = true;
+            playerTwoScore++;
+        }
+
+        scoreTextP1.text = playerOneScore.ToString();
+        scoreTextP2.text = playerTwoScore.ToString();   
     }
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
