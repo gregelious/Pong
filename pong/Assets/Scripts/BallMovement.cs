@@ -5,33 +5,33 @@ using UnityEngine.UI;
 
 public class BallMovement : MonoBehaviour
 {
-    public float xSpeed = 0;
-    public float ySpeed = 0;
-    private float xBorder = 8.5f;
-    private float yBorder = 4.5f;
+    public float xSpeed = 0; //horizontal speed
+    public float ySpeed = 0; // vertical speed
+    private float xBorder = 8.5f; // left & right border
+    private float yBorder = 4.5f; // up and down border
 
-    public bool xMove = true;
-    public bool yMove = true;
+    public bool xMove = true; // true = right, false = left
+    public bool yMove = true; // true = up, false = right
 
-    int playerOneScore;
-    public Text scoreTextP1;
-    int playerTwoScore;
-    public Text scoreTextP2;
+    int playerOneScore; // tracks score
+    public Text scoreTextP1; // shows score
+    int playerTwoScore; // tracks score
+    public Text scoreTextP2; // shows score
 
     // Start is called before the first frame update
     void Start()
     {
-        xSpeed = 0.0125f;
-        ySpeed = 0.02f;
+        xSpeed = 0.0125f; // moves to the right
+        ySpeed = 0.02f; // moves up
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x >= xBorder) { xMove = false; }
-        if (transform.position.x <= -xBorder) { xMove = true; }
-        if (transform.position.y >= yBorder) { yMove = false; }
-        if (transform.position.y <= -yBorder) { yMove = true; }
+        if (transform.position.x >= xBorder) { xMove = false; } // if it goes too far right, goes left
+        if (transform.position.x <= -xBorder) { xMove = true; } // if it goes too far left, goes right
+        if (transform.position.y >= yBorder) { yMove = false; } // if it goes too far up, goes down
+        if (transform.position.y <= -yBorder) { yMove = true; }// if it goes too far down, goes up
 
         if (xMove == true)
         {

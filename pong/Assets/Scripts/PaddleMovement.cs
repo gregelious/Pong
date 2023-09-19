@@ -16,11 +16,11 @@ public class PaddleMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.O))
+        if (Input.GetKey(KeyCode.O) && transform.position.y <= yBorder)
         {
             transform.position = new Vector2(transform.position.x, transform.position.y + speed);
         }
-        if (Input.GetKey(KeyCode.L))
+        if (Input.GetKey(KeyCode.L) && transform.position.y >= -yBorder)
         {
             transform.position = new Vector2(transform.position.x, transform.position.y - speed);
         }
