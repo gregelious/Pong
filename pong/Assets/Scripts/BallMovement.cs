@@ -71,14 +71,18 @@ public class BallMovement : MonoBehaviour
         Debug.Log("hit");
         if (collision.collider.CompareTag("Player"))
         {
+
             if (xMove == true)
             {
                 xMove = false;
+                
             }
             else
             {
                 xMove = true;
             }
+            xSpeed += 10.001f;
+            ySpeed += 10.002f;
         }
     }
 }
