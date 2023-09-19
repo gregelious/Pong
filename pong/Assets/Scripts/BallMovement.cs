@@ -54,11 +54,15 @@ public class BallMovement : MonoBehaviour
         {
             xMove = false; // goes left
             playerOneScore++; // score goes up by 1
+            xSpeed = 0.0125f; // moves to the right
+            ySpeed = 0.02f; // moves up
         }
         if (transform.position.x <= -xBorder) // if past the left border
         {
             xMove = true; // goes right
             playerTwoScore++; // score goes up by 1
+            xSpeed = 0.0125f; // moves to the right
+            ySpeed = 0.02f; // moves up
         }
 
         scoreTextP1.text = playerOneScore.ToString(); // shows the score
@@ -81,8 +85,8 @@ public class BallMovement : MonoBehaviour
             {
                 xMove = true;
             }
-            xSpeed += 10.001f;
-            ySpeed += 10.002f;
+            xSpeed += 0.001f;
+            ySpeed += 0.002f;
         }
     }
 }
