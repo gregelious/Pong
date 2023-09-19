@@ -33,36 +33,36 @@ public class BallMovement : MonoBehaviour
         if (transform.position.y >= yBorder) { yMove = false; } // if it goes too far up, goes down
         if (transform.position.y <= -yBorder) { yMove = true; }// if it goes too far down, goes up
 
-        if (xMove == true)
+        if (xMove == true) 
         {
-            transform.position = new Vector2(transform.position.x + xSpeed, transform.position.y);
+            transform.position = new Vector2(transform.position.x + xSpeed, transform.position.y); // goes right
         }
-        else
+        else // if xMove is false
         {
-            transform.position = new Vector2(transform.position.x - xSpeed, transform.position.y);
+            transform.position = new Vector2(transform.position.x - xSpeed, transform.position.y); // goes left
         }
         if (yMove == true)
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y + ySpeed);
+            transform.position = new Vector2(transform.position.x, transform.position.y + ySpeed); // goes up
         }
-        else
+        else // if yMove is false
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y - ySpeed);
+            transform.position = new Vector2(transform.position.x, transform.position.y - ySpeed); // goes down
         }
 
-        if (transform.position.x >= xBorder)
+        if (transform.position.x >= xBorder) // if past the right border
         {
-            xMove = false;
-            playerOneScore++;
+            xMove = false; // goes left
+            playerOneScore++; // score goes up by 1
         }
-        if (transform.position.x <= -xBorder)
+        if (transform.position.x <= -xBorder) // if past the left border
         {
-            xMove = true;
-            playerTwoScore++;
+            xMove = true; // goes right
+            playerTwoScore++; // score goes up by 1
         }
 
-        scoreTextP1.text = playerOneScore.ToString();
-        scoreTextP2.text = playerTwoScore.ToString();   
+        scoreTextP1.text = playerOneScore.ToString(); // shows the score
+        scoreTextP2.text = playerTwoScore.ToString();   // shows the score
     }
 
 
