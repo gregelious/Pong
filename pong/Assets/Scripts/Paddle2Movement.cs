@@ -5,24 +5,24 @@ using UnityEngine;
 public class Paddle2Movement : MonoBehaviour
 {
 
-    public float speed = 1f;
-    public float yBorder = 4.5f;
+    public float speed = 1f; // speed
+    public float yBorder = 4.5f; // border
     // Start is called before the first frame update
     void Start()
     {
-        speed = .05f;
+        speed = .05f; // resetting speed
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W) && transform.position.y <= yBorder)
+        if (Input.GetKey(KeyCode.W) && transform.position.y <= yBorder) // if I press W and its not outside the border
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y + speed);
+            transform.position = new Vector2(transform.position.x, transform.position.y + speed); // it goes up
         }
-        if (Input.GetKey(KeyCode.S) && transform.position.y >= -yBorder)
+        if (Input.GetKey(KeyCode.S) && transform.position.y >= -yBorder) // if I press S and its not outside the border
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y - speed);
+            transform.position = new Vector2(transform.position.x, transform.position.y - speed); // it goes down
         }
     }
 }

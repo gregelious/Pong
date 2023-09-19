@@ -7,7 +7,7 @@ public class BallMovement : MonoBehaviour
 {
     public float xSpeed = 0; //horizontal speed
     public float ySpeed = 0; // vertical speed
-    private float xBorder = 8.5f; // left & right border
+    private float xBorder = 6.6f; // left & right border
     private float yBorder = 4.5f; // up and down border
 
     public bool xMove = true; // true = right, false = left
@@ -56,6 +56,7 @@ public class BallMovement : MonoBehaviour
             playerOneScore++; // score goes up by 1
             xSpeed = 0.0125f; // moves to the right
             ySpeed = 0.02f; // moves up
+            
         }
         if (transform.position.x <= -xBorder) // if past the left border
         {
@@ -63,6 +64,7 @@ public class BallMovement : MonoBehaviour
             playerTwoScore++; // score goes up by 1
             xSpeed = 0.0125f; // moves to the right
             ySpeed = 0.02f; // moves up
+            
         }
 
         scoreTextP1.text = playerOneScore.ToString(); // shows the score
