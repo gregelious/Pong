@@ -54,16 +54,16 @@ public class BallMovement : MonoBehaviour
         {
             xMove = false; // goes left
             playerOneScore++; // score goes up by 1
-            xSpeed = 0.0125f; // moves to the right
-            ySpeed = 0.02f; // moves up
-            
+            xSpeed = 0.0125f; // resets speed
+            ySpeed = 0.02f; // resets speed
+
         }
         if (transform.position.x <= -xBorder) // if past the left border
         {
             xMove = true; // goes right
             playerTwoScore++; // score goes up by 1
-            xSpeed = 0.0125f; // moves to the right
-            ySpeed = 0.02f; // moves up
+            xSpeed = 0.0125f; // resets speed
+            ySpeed = 0.02f; // resets speed
             
         }
 
@@ -75,20 +75,20 @@ public class BallMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("hit");
-        if (collision.collider.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player")) // if it hits a paddle
         {
 
-            if (xMove == true)
+            if (xMove == true) //if going right
             {
-                xMove = false;
+                xMove = false; // go left
                 
             }
-            else
+            else //if going left
             {
-                xMove = true;
+                xMove = true; // go right
             }
-            xSpeed += 0.001f;
-            ySpeed += 0.002f;
+            xSpeed += 0.001f; // gets faster when it hits paddle
+            ySpeed += 0.002f; // gets faster when it hits paddle
         }
     }
 }
